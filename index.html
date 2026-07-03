@@ -158,6 +158,12 @@
       border: 1px solid var(--line);
     }
 
+    .button.disabled {
+      cursor: default;
+      opacity: 0.65;
+      pointer-events: none;
+    }
+    
     .hero-card {
       background: var(--card);
       border: 1px solid var(--line);
@@ -412,7 +418,6 @@
         <a href="#about">About</a>
         <a href="#apps">Apps</a>
         <a href="#business">Business</a>
-        <a href="#contact">Contact</a>
       </nav>
     </header>
 
@@ -528,7 +533,7 @@
 
             <div class="app-actions">
               <a class="button primary" href="/bakersnote/">View Baker's Note</a>
-              <a class="button secondary" href="#contact">Coming Soon</a>
+              <span class="button secondary disabled">Store links coming soon</span>
             </div>
           </article>
         </div>
@@ -564,25 +569,6 @@
               <li>Email: <a href="mailto:studio.sangsangplus@gmail.com">studio.sangsangplus@gmail.com</a></li>
             </ul>
           </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <div class="section-header">
-          <div class="section-kicker">Contact</div>
-          <h2>Get in touch</h2>
-          <p class="section-desc">
-            For customer support, app inquiries, or business-related communication, please contact
-            SangsangPlus by email.
-          </p>
-        </div>
-
-        <div class="info-card">
-          <h3>SangsangPlus</h3>
-          <ul class="contact-list">
-            <li>Email: <a href="mailto:studio.sangsangplus@gmail.com">studio.sangsangplus@gmail.com</a></li>
-            <li>Website: <a href="https://studiosangsangplus.github.io/">https://studiosangsangplus.github.io/</a></li>
-          </ul>
         </div>
       </section>
     </main>
