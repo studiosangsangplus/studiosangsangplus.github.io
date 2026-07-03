@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baker's Note - Bread Recipe Notebook</title>
+  <meta name="description" content="Baker's Note is a simple bread recipe notebook for saving recipes, ingredients, baking steps, and notes.">
+
+  <link rel="icon" type="image/png" href="app_icon.png">
+  <link rel="apple-touch-icon" href="app_icon.png">
+  
+  <style>
+    :root {
+      --brown: #3E331E;
+      --brown-soft: #9B8152;
+      --gold: #C99B32;
+      --cream: #F7F4EC;
+      --cream-deep: #EAE4D6;
+      --text: #2A241B;
+      --muted: #7B7469;
+      --line: #E3DCCF;
+      --bg: #FAF8F3;
+      --white: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    .wrap {
+      width: min(920px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--brown);
+    }
+
+    .logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      background: var(--cream-deep);
+      border: 1px solid var(--line);
+    }
+    
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 500;
+      letter-spacing: -0.03em;
+      font-size: 30px;
+    }
+
+    .hero {
+      padding: 56px 0 40px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    h1 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(40px, 6vw, 66px);
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin: 0 0 20px;
+      color: var(--brown);
+    }
+
+    .lead {
+      font-size: 19px;
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 0 28px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: var(--white);
+    }
+
+    .button.primary {
+      background: var(--brown);
+      color: white;
+      border-color: var(--brown);
+    }
+
+    .phone {
+      border-radius: 34px;
+      padding: 2px;
+      background: linear-gradient(180deg, #C8B388, #3E331E);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.08);
+    }
+      
+    .app-shot {
+      width: 100%;
+      display: block;
+      border-radius: 32px;
+    }
+
+    section {
+      padding: 48px 0;
+    }
+
+    .section-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      letter-spacing: -1px;
+      margin: 0 0 22px;
+      color: var(--brown);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: var(--brown);
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .note {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 36px 0 48px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      margin-top: 30px;
+    }
+
+    footer a {
+      color: var(--brown);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer-separator {
+      color: #B8B0A3;
+      margin: 0 4px;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 28px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .phone {
+        max-width: 360px;
+        margin: 0 auto;
+      }
+
+      .brand-name {
+        font-size: 27px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="wrap">
+    <div class="brand">
+      <div class="logo">
+        <img src="app_icon.png" alt="Baker's Note logo">
+      </div>
+      <span class="brand-name">Baker's Note</span>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1>Your bread recipes, neatly kept.</h1>
+        <p class="lead">
+          Baker's Note is a simple recipe notebook for home bakers.
+          Save bread recipes, organize ingredients and steps, scale formulas,
+          and keep your baking notes in one calm place.
+        </p>
+
+        <div class="buttons">
+          <a class="button primary" href="#features">View Features</a>
+          <a class="button" href="/">Studio Home</a>
+        </div>
+      </div>
+
+      <div class="phone" aria-label="Baker's Note app screenshot">
+        <img src="bakersnote.png" alt="Baker's Note app main screen" class="app-shot">
+      </div>
+    </section>
+
+    <section id="features">
+      <h2 class="section-title">Made for simple baking notes</h2>
+
+      <div class="cards">
+        <article class="card">
+          <h3>Recipe notebook</h3>
+          <p>Save bread recipes with ingredients, steps, categories, and personal notes.</p>
+        </article>
+
+        <article class="card">
+          <h3>Formula-friendly</h3>
+          <p>Record flour, dough, hydration, and ingredient amounts in a structured way.</p>
+        </article>
+
+        <article class="card">
+          <h3>Scale and share</h3>
+          <p>Adjust recipe amounts and create clean recipe cards for sharing.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Premium</h2>
+
+      <div class="card">
+        <h3>Baker's Note Plus</h3>
+        <p>
+          Baker's Note Plus is a one-time in-app purchase that unlocks unlimited
+          recipe registration and removes ads.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Our approach</h2>
+
+      <div class="note">
+        Baker's Note is designed to stay focused on the essentials:
+        recipes, ingredients, baking steps, and notes. No unnecessary clutter —
+        just a calm place to keep your baking process organized.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p><strong>Studio SangsangPlus</strong></p>
+
+      <p>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <span class="footer-separator">|</span>
+        <a href="purchase-policy.html">Purchase & Refund Policy</a>
+      </p>
+
+      <p class="footer-contact">
+        Contact:
+        <a href="mailto:studio.sangsangplus@gmail.com">
+          studio.sangsangplus@gmail.com
+        </a>
+      </p>
+
+      <p>© 2026 SangA Joo. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
