@@ -45,6 +45,21 @@ body.theme-plantlog {
   --phone-gradient-end: #267156;
 }
 
+/* Weave — "Linen", the app's own free theme. Same tokens the app ships
+   in `AppPalette.defaultFree`, so the site and the product agree. */
+body.theme-weave {
+  --page-bg: #f6f2ea;
+  --card-bg: #fffdf9;
+  --text: #26221c;
+  --muted: #6f6759;
+  --line: #e4dccd;
+  --accent: #c2543a;
+  --accent-soft: #f4ded4;
+  --accent-deep: #a6472f;
+  --phone-gradient-start: #f4ded4;
+  --phone-gradient-end: #c2543a;
+}
+
 body.theme-bakers-note {
   --page-bg: #faf8f3;
   --card-bg: #ffffff;
